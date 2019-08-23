@@ -9,6 +9,7 @@ var pathMap = new Map();
 var fileNameArr = fs.readdirSync(path.join(__dirname,"/" + globalConfig.web_path));
 
 for (var i = 0; i < fileNameArr.length; i++) {
+    
     var temp = require("./" + globalConfig.web_path + "/" + fileNameArr[i]);
 
     if (temp.path) {

@@ -12,6 +12,7 @@ var path = new Map();
 
 
 function queryTagAll(request, response) {
+
     tagDao.queryTagAll(function (res) {
         res.sort(function () {
             return Math.random() > 0.5 ? 1 : -1;
@@ -20,6 +21,7 @@ function queryTagAll(request, response) {
         response.write(respUtil.writeResult("success", "查询成功", res));
         response.end();
     })
+
 }
 path.set("/queryTagAll", queryTagAll);
 
@@ -29,7 +31,6 @@ function queryBlogByPageAndTag(request, response) {
     var params = url.parse(request.url, true).query;
 
     tagDao.queryTagByTag(params.tag, function (res) {
-
         if (res == null || res.length == 0) {
             response.writeHead(200);
             response.write(respUtil.writeResult("success", "查询成功", res));
@@ -44,13 +45,14 @@ function queryBlogByPageAndTag(request, response) {
                     })
                 }
                 getResult(blogList, res.length, response);//利用定时器阻塞异步读取数据库直到全部读取完成
-
             })
         }
     })
 }
 path.set("/queryBlogByPageAndTag", queryBlogByPageAndTag);
-function getResult(blogList, len, response) {
+
+
+function getResult(blogList, len, response) { //异步阻塞
     if (blogList < len) {
         setTimeout(function () {
             getResult(blogList, len, response)

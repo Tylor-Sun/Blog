@@ -7,11 +7,8 @@ var articleDetail = new Vue({
         views: "",
         content: "",
         commentNum: "",
-
     },
-    computed: {
-
-    },
+    computed: {},
     created() {
 
         var searchUrlParams = location.search.indexOf("?") > -1 ? location.search.split("?")[1].split("&") : "";

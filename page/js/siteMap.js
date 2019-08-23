@@ -63,13 +63,13 @@ var blogList = new Vue({
                     console.log("请求失败：getBlogByPage", err);
                 });
 
-                this.generatePageTool;//获取页码数组
+                this.generatePageTool;
             }
         },
         generatePageTool: function () {
-            var nowPage = this.nowPage;//当前页
-            var pageSize = this.pageSize;//总页数
-            var pageCount = this.pageCount;//总条数
+            var nowPage = this.nowPage;
+            var pageSize = this.pageSize;
+            var pageCount = this.pageCount;
             var result = [];
             result.push({ text: "<<", page: 1 });
             if (nowPage > 2) {

@@ -10,7 +10,6 @@ var messageList = new Vue({
                 curTime: "2019年5月18日",
                 comments: "这个怎么打不开呀？？？？"
             },
-
         ]
     },
     computed: {

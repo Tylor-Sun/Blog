@@ -1,6 +1,7 @@
 var dbutil = require("./DButil");
 
 function setEveryDay(content, curTime, success) {
+    
     var insertSql = "insert into every_day (`content`, `cur_time`) values (?, ?);"
     var params = [content, curTime];
 

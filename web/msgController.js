@@ -14,7 +14,9 @@ var path = new Map();
 
 
 function insertMessage(request, response) {
+
     var params = url.parse(request.url, true).query;
+
     msgDao.insertMessage(parseInt(params.blogId), parseInt(params.parent), params.parentName, params.userName, params.comments, params.email, createTimeUtil.getNowTime(), createTimeUtil.getNowTime(), function (res) {
         response.writeHead(200);
         response.write(respUtil.writeResult("success", "留言成功", res));
@@ -24,7 +26,7 @@ function insertMessage(request, response) {
 path.set("/insertMessage", insertMessage)
 
 
-function queryRandomCode(request, response) {
+function queryRandomCode(request, response) { //验证码
     var img = captcha.create({ fontSize: 50, width: 100, height: 40 });
     response.writeHead(200);
     response.write(respUtil.writeResult("success", "获取验证码成功", img));
@@ -32,8 +34,11 @@ function queryRandomCode(request, response) {
 }
 path.set("/queryRandomCode", queryRandomCode);
 
+
 function queryCommentsByBlogId(request, response) {
+
     var params = url.parse(request.url, true).query;
+
     msgDao.queryCommentsByBlogId(parseInt(params.blogId), function (res) {
         response.writeHead(200);
         response.write(respUtil.writeResult("success", "留言成功", res));
@@ -42,8 +47,11 @@ function queryCommentsByBlogId(request, response) {
 }
 path.set("/queryCommentsByBlogId", queryCommentsByBlogId)
 
+
 function queryCommentsNumByBlogId(request, response) {
+
     var params = url.parse(request.url, true).query;
+    
     msgDao.queryCommentsNumByBlogId(parseInt(params.blogId), function (res) {
         response.writeHead(200);
         response.write(respUtil.writeResult("success", "留言成功", res));
@@ -51,6 +59,7 @@ function queryCommentsNumByBlogId(request, response) {
     })
 }
 path.set("/queryCommentsNumByBlogId", queryCommentsNumByBlogId)
+
 
 function queryCommentsByCurTime(request, response) {
 
@@ -61,5 +70,6 @@ function queryCommentsByCurTime(request, response) {
     })
 }
 path.set("/queryCommentsByCurTime", queryCommentsByCurTime)
+
 
 module.exports.path = path;

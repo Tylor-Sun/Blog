@@ -88,7 +88,4 @@ var moduleNewComment = new Vue({
         this.getNewComment();
     }
 })
-var moduleLink = new Vue({
-    el: "#module-link",
-    data: {}
-})
+

@@ -1,8 +1,10 @@
 var dbutil = require("./DButil");
 
 function queryTag(tag, success){
+
     var querySql = "select * from tags where tag = ?;";
-    var params = [tag]    
+    var params = [tag];    
+
     var connection = dbutil.createConnection();
     connection.connect();
     connection.query(querySql, params, function (err, res){
@@ -16,8 +18,10 @@ function queryTag(tag, success){
 }
 
 function insertTag(tag, cur_time, mod_time, success){
+
     var insertSql = "insert into tags (`tag`, `cur_time`, `mod_time`) values (?,?,?);";
     var params = [tag, cur_time, mod_time];
+    
     var connection = dbutil.createConnection();
     connection.connect();
     connection.query(insertSql, params, function (err, res){

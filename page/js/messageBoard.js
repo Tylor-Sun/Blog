@@ -2,16 +2,7 @@ var messageList = new Vue({
     el: "#message-list",
     data: {
         total: 0,
-        messageList: [
-            {
-                blogId: 22,
-                userName: "sunhao",
-                options: "",
-                curTime: "2019年5月18日",
-                comments: "这个怎么打不开呀？？？？"
-            },
-
-        ]
+        messageList: []
     },
     computed: {
         getComments() {

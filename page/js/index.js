@@ -66,7 +66,7 @@ var articleList = new Vue({
 
                     axios({
                         method: "get",
-                        url: "/queryBlogByPage?nowPage=" + (nowPage - 1) + "&pageSize=" + pageSize 
+                        url: "/queryBlogByPage?nowPage=" + (nowPage - 1) + "&pageSize=" + pageSize
                     }).then(function (res) {
                         var result = res.data.data;
                         var list = [];

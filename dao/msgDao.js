@@ -1,8 +1,7 @@
 var dbutil = require("./DButil");
 
-
-
 function queryCommentsByBlogId(blog_id, success) {
+    
     var querySql = "select * from comments where blog_id = ?;";
     var params = [blog_id];
 
@@ -19,6 +18,7 @@ function queryCommentsByBlogId(blog_id, success) {
 }
 
 function insertMessage(blog_id, parent, parent_name, user_name, comments, email, cur_time, mod_time, success) {
+
     var insertSql = "insert into comments(`blog_id`, `parent`, `parent_name`,`user_name`, `comments`, `email`, `cur_time`, `mod_time`) values(?,?,?,?,?,?,?,?);";
     var params = [blog_id, parent, parent_name, user_name, comments, email, cur_time, mod_time];
 
@@ -35,6 +35,7 @@ function insertMessage(blog_id, parent, parent_name, user_name, comments, email,
 }
 
 function queryCommentsNumByBlogId(blog_id, success) {
+
     var querySql = "select count(1) as count from comments where blog_id = ?;";
     var params = [blog_id];
 
@@ -51,6 +52,7 @@ function queryCommentsNumByBlogId(blog_id, success) {
 }
 
 function queryCommentsByCurTime(length, success) {
+
     var querySql = "select * from comments order by cur_time desc limit ?;";
     var params = [length];
 

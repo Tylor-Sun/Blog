@@ -20,7 +20,6 @@ function querylBlogHotList(request, response){
         response.end();
     })
 }
-
 path.set("/querylBlogHotList", querylBlogHotList);
 
 function queryBlogAll(request, response){
@@ -31,7 +30,6 @@ function queryBlogAll(request, response){
         response.end();
     })
 }
-
 path.set("/queryBlogAll", queryBlogAll);
 
 function queryBlogById(request, response){
@@ -59,6 +57,7 @@ path.set("/queryBlogCount", queryBlogCount);
 
 
 function queryBlogByPage(request, response) {
+
     var parmas = url.parse(request.url, true).query;
 
     blogDao.queryBlogByPage(parmas.nowPage, parmas.pageSize, function (res) {
@@ -81,7 +80,6 @@ path.set("/queryBlogByPage", queryBlogByPage);
 function insertBlog(request, response) {
 
     var params = url.parse(request.url, true).query;
-
     var tags = params.tag.replace("，", ",").replace(/\s/g, "");
 
     request.on("data", function (data) {
@@ -109,9 +107,8 @@ path.set("/insertBlog", insertBlog);
 
 
 function queryTag(tag, blogId) {
-    console.log(tag)
     tagDao.queryTag(tag, function (res) {
-        if (res == null || res.length == 0) {//没有标签插入一个标签
+        if (res == null || res.length == 0) {
             insertTag(tag, blogId);
         } else {
             insertTagBlogMapping(res[0].id, blogId);

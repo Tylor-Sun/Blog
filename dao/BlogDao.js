@@ -1,6 +1,5 @@
 var dbutil = require("./DButil");
 
-
 function queryBlogAll (success){
     
     var querySql = "select * from blog order by id desc;";
@@ -18,6 +17,7 @@ function queryBlogAll (success){
 }
 
 function updateBlogViews(blog_id,success){
+
     var updateSql = "update blog set views = views + 1 where id = ?;";
     var params = [blog_id]
 
