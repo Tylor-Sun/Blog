@@ -1,0 +1,126 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #f4f5f5;
+    text-align: center;
+}
+
+.title{
+    width: 100%;
+    color: #fff;
+    line-height: 60px;
+    font-weight: bolder;
+    font-size: 22px;
+    height: 60px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    background-color: rgb(17, 17, 17);
+}
+.title a{
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
+    padding:0 10px;
+}
+.wrapper{
+    width: 1170px;
+    margin: 0px auto;
+}
+.wrapper .crumb{
+    width: 70%;
+    margin: 0px auto 10px;
+    text-align: left;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.wrapper .crumb a{
+    color: black;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+.wrapper .container{
+    padding: 10px 20px;
+    box-sizing: border-box;
+    width: 70%;
+    margin: 0px auto 20px;
+    background-color: #fff;
+}
+.wrapper .container .article-list{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #999;
+}
+.wrapper .container .blog-list{
+    margin-bottom: 20px;
+}
+.wrapper .container .blog-list li{
+    text-align: left;
+    list-style: none;
+    padding: 10px 20px 10px;
+    border-bottom: 1px dashed #999;
+    cursor: pointer;
+}
+.wrapper .container .blog-list .item:hover{
+    box-shadow: 0px 0px 5px 2px #eee;
+}
+.wrapper .container .blog-list .item span{
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 40px;
+    padding: 2px 0 2px 5px;
+    box-sizing: border-box;
+    border: 1px solid #ca0c16;
+    border-radius: 50%;
+    color: #ca0c16;
+    font-weight: bold;
+}
+
+.wrapper .container .blog-list .item a{
+    display: inline-block;
+    padding-left: 10px;
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.wrapper .container .blog-list .item a:hover{
+    color: #ca0c16;
+}
+.wrapper .container .blog-list .item p{
+    padding: 10px 0px 10px 0px;
+    font-weight: 500;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.changePage ul{
+    cursor: pointer;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.changePage ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: #f3f0f0b2;
+    color: #0508b4da;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 5px;
+}
+.changePage ul li:hover{
+    color: #080bdada;
+}
+.changePage ul li.active{
+    background-color: #0509e7;
+    color: #fff;
+}

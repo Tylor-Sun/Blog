@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-sclee=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/messageBoard.css">
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script src="./js/axios.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="title">我的博客 | Full Stack</a>
+            <ul class="menu">
+                <li><a href="./index.html" class="active">主页</a></li>
+                <li><a href="./siteMap.html">目录</a></li>
+                <li><a href="./about.html">关于</a></li>
+                <li><a href="./messageBoard.html">留言</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" placeholder="请输入关键字...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="content-left">
+            <div class="describe">
+                <p>hahha</p>
+            </div>
+            <!-- 展示评论 -->
+            <div class="message-list" id="message-list">
+                <p class="msg-title">留言区（共计{{total}}条留言）</p>
+                <div class="message" v-for="(item, index ) in messageList" :key="index">
+                    <p class="msg-decribe">
+                        <span class="msg-name">{{item.user_name}}:{{item.options}}</span>
+                        <span class="msg-time">发表于{{item.cur_time}}</span>
+                        <a class="msg-reply" @click="replySomeBody(item.blog_id,item.user_name)">回复</a>
+                    </p>
+                    <p class="msg-content">{{item.comments}}</p>
+                </div>
+            </div>
+            <!-- 发表评论 -->
+            <div class="write-message" id="write-message">
+                <div class="form">
+                    <input type="hidden" id="reply" value="-1">
+                    <input type="hidden" id="parentName" value="0">
+                    <div class="user">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" placeholder="请输入您的用户名...">
+                    </div>
+                    <div class="email">
+                        <label for="useremail">邮箱</label>
+                        <input type="text" id="useremail" placeholder="博主回复内容将会给您发送至邮箱">
+                    </div>
+                    <div class="message">
+                        <label for="usermessage">留言</label>
+                        <input type="text" id="usermessage" placeholder="说点什么..." value="">
+                    </div>
+                    <div class="cumitcode">
+                        <span v-html="code" @click="changeCode"></span>
+                        <input type="text" id="code" placeholder="验证码">
+                    </div>
+                    <div class="btn">
+                        <button type="submit" @click="submitMessage()">提交</button>
+                        <button type="reset">重置</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="content-right">
+            <div class="right-module" id="module-tag">
+                <p class="module-name">随机标签云</p>
+                <div class="tag-list">
+                    <a :href="item.link" class="tag" v-for="(item, index) in tagList" :key="index"
+                        :style="{color:randomColor(), fontSize:randomSize(), fontFamily:'STLiti', fontWeigth: 'bolder'}">{{item.tag}}</a>
+                </div>
+            </div>
+            <div class="right-module" id="module-hot">
+                <p class="module-name">最近热门</p>
+                <ul class="hot-list">
+                    <li v-for=" (item, index) in hotList" :key="index"><a :href="item.link">{{item.title}}</a></li>
+                </ul>
+            </div>
+            <div class="right-module" id="module-comment">
+                <p class="module-name">最新评论</p>
+                <ul class="comment-list">
+                    <li v-for="(item, index) in commentList" :key="index">
+                        <span class="c-name">{{ item.user_name }}</span>
+                        <span class="c-time">{{ item.cur_time}}</span>
+                        <p class="c-content"> {{ item.comments}}</p>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="right-module" id="module-link">
+                <p class="module-name">友情链接</p>
+                <ul class="friend-list">
+                    <li><a href="">CSDN</a></li>
+                    <li><a href="">CSDN</a></li>
+                    <li><a href="">CSDN</a></li>
+                    <li><a href="">CSDN</a></li>
+                    <li><a href="">CSDN</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <ul>
+            <li> <a href="/">JavaScirpt</a></li>
+            <li> <a href="/">CSS3</a></li>
+            <li> <a href="/">HTML5</a></li>
+            <li> <a href="/">BootStrap</a></li>
+            <li> <a href="/">JavaScirpt</a></li>
+            <li> <a href="/">CSS3</a></li>
+            <li> <a href="/">HTML5</a></li>
+            <li> <a href="/">BootStrap</a></li>
+            <li> <a href="/">JavaScirpt</a></li>
+            <li> <a href="/">CSS3</a></li>
+            <li> <a href="/">HTML5</a></li>
+            <li> <a href="/">BootStrap</a></li>
+        </ul>
+        <p>Copyright © 2019 孙浩个人博客 All rights reserved.</p>
+    </footer>
+    <script src="./js/messageBoard.js"></script>
+    <script src="./js/base.js"></script>
+</body>
+
+</html>
